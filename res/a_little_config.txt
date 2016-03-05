@@ -2,3 +2,8 @@ jdbcUrl = jdbc:mysql://127.0.0.1/jfinal_demo?characterEncoding=utf8&zeroDateTime
 user = root
 password = 258775
 devMode = true
+sleepTime = 1000
+port = 21
+ip = 192.168.31.1
+username = admin
+ftpPassword = admin

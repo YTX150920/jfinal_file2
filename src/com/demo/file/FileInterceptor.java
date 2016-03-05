@@ -1,4 +1,4 @@
-package com.demo.user;
+package com.demo.file;
 
 import com.jfinal.aop.Interceptor;
 import com.jfinal.aop.Invocation;
@@ -7,7 +7,7 @@ import com.jfinal.aop.Invocation;
  * BlogInterceptor
  * 此拦截器仅做为示例展示，在本 demo 中并不需要
  */
-public class UserInterceptor implements Interceptor {
+public class FileInterceptor implements Interceptor {
 	
 	public void intercept(Invocation inv) {
 		System.out.println("Before invoking " + inv.getActionKey());

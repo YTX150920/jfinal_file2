@@ -1,13 +1,13 @@
-package com.demo.user;
+package com.demo.file;
 
-import com.demo.model.User;
+import com.demo.model.File;
 import com.jfinal.core.Controller;
 import com.jfinal.validate.Validator;
 
 /**
  * BlogValidator.
  */
-public class UserValidator extends Validator {
+public class FileValidator extends Validator {
 	
 	protected void validate(Controller controller) {
 		validateRequiredString("user.username", "userName", "请输入用户名!");
@@ -15,12 +15,12 @@ public class UserValidator extends Validator {
 	}
 	
 	protected void handleError(Controller controller) {
-		controller.keepModel(User.class);
+		controller.keepModel(File.class);
 		
 		String actionKey = getActionKey();
-		if (actionKey.equals("/user/save"))
+		if (actionKey.equals("/file/save"))
 			controller.render("add.html");
-		else if (actionKey.equals("/user/update"))
+		else if (actionKey.equals("/file/update"))
 			controller.render("edit.html");
 	}
 }

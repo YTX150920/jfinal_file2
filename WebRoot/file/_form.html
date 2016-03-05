@@ -1,0 +1,16 @@
+<fieldset class="solid">
+	<legend>创建File</legend>
+	<input type="hidden" name="file.id" value="${(file.id)!}" />
+	<div>
+		<label>文件名</label>
+		<input type="text" name="file.filename" value="${(file.username)!}" />${fileName!}
+	</div>
+	<div>
+		<label>文件大小</label>
+		<textarea name="user.password" cols="80" rows="10">${(file.filesize)!}</textarea>${filesize!}
+	</div>
+	<div>
+		<label>&nbsp;</label>
+		<input value="提交" type="submit">
+	</div>
+</fieldset>

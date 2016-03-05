@@ -1,8 +1,10 @@
 package com.demo.config;
 
+import com.demo.file.FileController;
 import com.demo.index.IndexController;
 import com.demo.model._MappingKit;
-import com.demo.user.UserController;
+import com.demo.thread.FileReadTread;
+import com.demo.thread.FileWriteThread;
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
 import com.jfinal.config.Interceptors;
@@ -33,7 +35,7 @@ public class DemoConfig extends JFinalConfig {
 	 */
 	public void configRoute(Routes me) {
 		me.add("/", IndexController.class, "/index");	// 第三个参数为该Controller的视图存放路径
-		me.add("/user", UserController.class);			// 第三个参数省略时默认与第一个参数值相同，在此即为 "/blog"
+		me.add("/file", FileController.class);			// 第三个参数省略时默认与第一个参数值相同，在此即为 "/blog"
 	}
 	
 	public static C3p0Plugin createC3p0Plugin() {
@@ -70,6 +72,22 @@ public class DemoConfig extends JFinalConfig {
 		
 	}
 	
+	@Override
+	public void afterJFinalStart() {
+//		String sleepTime = PropKit.get("sleepTime");
+//		String ip = PropKit.get("ip");
+//		String port = PropKit.get("port");
+//		String username = PropKit.get("username");
+//		String ftpPassword = PropKit.get("ftpPassword");
+//		//线程启动
+//		FileWriteThread fileWriteThread = new FileWriteThread(sleepTime);
+//		fileWriteThread.start();
+//		
+//		FileReadTread fileReadThread = new FileReadTread(sleepTime,ip,port,username,ftpPassword);
+//		fileReadThread.start();
+		super.afterJFinalStart();
+	}
+
 	/**
 	 * 建议使用 JFinal 手册推荐的方式启动项目
 	 * 运行此 main 方法可以启动项目，此main方法可以放置在任意的Class类定义中，不一定要放于此
