@@ -1,7 +1,8 @@
 package com.demo.file;
 
-import com.demo.file.FileInterceptor;
-import com.demo.file.FileValidator;
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
+import org.apache.shiro.authz.annotation.RequiresRoles;
+
 import com.demo.model.File;
 import com.jfinal.aop.Before;
 import com.jfinal.core.Controller;
@@ -12,35 +13,45 @@ import com.jfinal.core.Controller;
  */
 @Before(FileInterceptor.class)
 public class FileController extends Controller {
+	
+	@RequiresAuthentication
 	public void index() {
 		setAttr("filePage", File.me.paginate(getParaToInt(0, 1), 10));
 		render("file.html");
 	}
 	
+	@RequiresAuthentication
 	public void add() {
 	}
 	
+	@RequiresAuthentication
 	@Before(FileValidator.class)
 	public void save() {
 		getModel(File.class).save();
 		redirect("/file");
 	}
 	
+	@RequiresAuthentication
+	@RequiresRoles("admin")
 	public void edit() {
 		setAttr("file", File.me.findById(getParaToInt()));
 	}
 	
+	@RequiresAuthentication
 	@Before(FileValidator.class)
 	public void update() {
 		getModel(File.class).update();
 		redirect("/file");
 	}
 	
+	@RequiresAuthentication
 	public void delete() {
 		File.me.deleteById(getParaToInt());
 		redirect("/file");
 	}
 	
+	@RequiresAuthentication
+	@RequiresRoles("admin")
 	public void deleteSelected(){
 		String idStr = getPara("idstr");
 		int deleteId = 0;
