@@ -10,8 +10,9 @@ import com.jfinal.validate.Validator;
 public class FileValidator extends Validator {
 	
 	protected void validate(Controller controller) {
-		validateRequiredString("user.username", "userName", "请输入用户名!");
-		validateRequiredString("user.password", "password", "请输入密码!");
+		validateRequiredString("file.filename", "fileName", "请输入文件名!");
+		validateRequiredString("file.filesize", "fileSize", "请输入文件大小!");
+		validateRequiredString("file.filelines", "fileLines", "请输入文件行数!");
 	}
 	
 	protected void handleError(Controller controller) {

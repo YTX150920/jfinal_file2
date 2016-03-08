@@ -67,7 +67,7 @@ public class DemoConfig extends JFinalConfig {
 		ShiroPlugin shiroPlugin = new ShiroPlugin(this.routes);
 		shiroPlugin.setLoginUrl("/");
 		shiroPlugin.setSuccessUrl("/file");
-		shiroPlugin.setUnauthorizedUrl("/");
+		shiroPlugin.setUnauthorizedUrl("/file");
 		me.add(shiroPlugin);
 	}
 
